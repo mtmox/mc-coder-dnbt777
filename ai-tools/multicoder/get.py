@@ -7,11 +7,9 @@ from utils import create_version_folder, save_response, log_cost, get_user_instr
 from system_prompt import SYSTEM_PROMPT
 from dotenv import load_dotenv
 
-# Load environment variables from the ai-tools directory
-current_dir = os.path.dirname(os.path.abspath(__file__))
-ai_tools_dir = os.path.dirname(current_dir)  # Go up one level to ai-tools
-env_path = os.path.join(ai_tools_dir, '.env')
-load_dotenv(env_path)
+# Load environment variables from the root directory
+root_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+load_dotenv(os.path.join(root_dir, '.env'))
 
 def handle_get(llm_count, pattern, recursive, user_instructions=None):
     if user_instructions is None:
@@ -48,7 +46,7 @@ def handle_get(llm_count, pattern, recursive, user_instructions=None):
     prompt += '</project files>'
 
     # Get model from environment variable, fallback to default
-    model = os.getenv("MODEL", "anthropic-sonnet-4")
+    model = os.getenv("AI_TOOLS_MODEL", "anthropic-sonnet-4")
 
     modelinterface = ModelInterface()
     for i in range(llm_count):
@@ -109,7 +107,7 @@ def handle_get_multifile(llm_count, file_names, user_instructions):
     prompt += '</project files>'
 
     # Get model from environment variable, fallback to default
-    model = os.getenv("MODEL", "anthropic-sonnet-4")
+    model = os.getenv("AI_TOOLS_MODEL", "anthropic-sonnet-4")
 
     # Send to AI
     modelinterface = ModelInterface()

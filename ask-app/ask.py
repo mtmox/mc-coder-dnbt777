@@ -10,11 +10,12 @@ sys.path.insert(0, multicoder_dir)
 from aiqs import ModelInterface
 
 def main():
-    # Load environment variables
-    load_dotenv()
+    # Load environment variables from root .env
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    load_dotenv(os.path.join(root_dir, '.env'))
 
     # Get the model to use from environment variable, default to OpenRouter OpenAI GPT-4o
-    model = os.getenv('MODEL', 'openai/gpt-4o')
+    model = os.getenv('ASK_APP_MODEL')
 
     # Get the directory of the current script
     current_dir = os.path.dirname(os.path.abspath(__file__))

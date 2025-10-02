@@ -27,6 +27,7 @@ Run `update-aliases` or `emsupdate` to set up the aliases in your shell.
 - **`mc ignore <pattern>`** - Add a pattern to the ignore list (e.g., `__pycache__`).
 - **`mc rmignore <pattern>`** - Remove a pattern from the ignore list.
 - **`mc lsignores`** or **`mc lsignore`** - List all ignored patterns.
+- **`mc model`** - Change the AI model for AI_TOOLS_MODEL or ASK_APP_MODEL in the .env file.
 
 ### Meta Commands
 - **`update-aliases`** or **`emsupdate`** - Update shell aliases and environment variables.

@@ -5,7 +5,8 @@ import shutil
 from get import handle_get
 from write import handle_write, list_responses, open_responses
 from rollback import handle_rollback
-from utils import clear_workspace, create_backup, undo_last_write, backup_current_state, ignore, unignore, lsignores
+from model import handle_model
+from utils import clear_workspace, create_backup, undo_last_write, ignore, backup_current_state, unignore, lsignores
 
 def main():
     if len(sys.argv) < 2:
@@ -92,8 +93,12 @@ def main():
         unignore(pattern)
 
 
-    elif command in ["lsignores", "lsignore"]:
+    elif command == "lsignores" or command == "lsignore":
         lsignores()
+
+
+    elif command == "model":
+        handle_model()
 
 
     else:

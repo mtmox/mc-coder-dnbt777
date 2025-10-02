@@ -63,9 +63,42 @@ def run_unit_tests():
     
     model_interface = ModelInterface()
     models = [
-        "anthropic-opus",
-        "anthropic-sonnet3.5",
+        "openai/gpt-5",
+        "openai/gpt-4.1-mini",
+        "openai/gpt-5-codex",
+        "openai/gpt-5-nano",
+
+        # Anthropic models
+        "anthropic/claude-sonnet-4",
+        "anthropic/claude-opus-4",
+        "anthropic/claude-opus-4.1",
+        "anthropic/claude-sonnet-4.5",
+    
+        # Google models
+        "google/gemini-2.5-flash-lite",
+        "google/gemini-2.5-flash",
+        "google/gemini-2.5-pro",
+    
+        # Deepseek models
+        "deepseek/deepseek-v3.2-exp",
+        "deepseek/deepseek-v3.1-terminus",
+        "deepseek/deepseek-chat-v3.1:free",
+
+        # Grok models
+        "x-ai/grok-4-fast:free",
+        "x-ai/grok-4-fast",
+        "x-ai/grok-code-fast-1",
+        "x-ai/grok-4",
+
+        # Qwen models
+        "qwen/qwen3-coder",
+
+        # Other models
+        "z-ai/glm-4.6",
+        "moonshotai/kimi-k2-0905",
+        "moonshotai/kimi-k2"
     ]
+    
     test_prompt = "Say your name, then the capital of France, then a prime number"
     print("Running unit tests for each model:")
     for model in models:
